@@ -1,5 +1,4 @@
 export default {
-
   Button: '按钮',
   Icon: '图标',
   Grid: '栅格',
@@ -48,14 +47,6 @@ export default {
   Form: '表单',
   Checkbox: '多选框',
   Popconfirm: '气泡确认框',
-  Color: '色彩',
-  Typography: '字体',
-  General: '通用',
-  LayOut: '布局',
-  Navigation: '导航',
-  DataEntry: '数据录入',
-  DataDisplay: '数据展示',
-  Feedback: '反馈',
-  Others: '其它'
-
+  Color: '颜色',
+  Typography: '字体'
 }

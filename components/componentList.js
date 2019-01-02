@@ -8,6 +8,8 @@ import { hasInHash, getHash } from '../../utils/handleHash';
 const styles = ({ color, fontFamily, fontSize, space, mq }) => ({
 	list: {
 		margin: 0,
+    paddingLeft: 0,
+    border: '1px solid red',
 	},
 	item: {
 		color: color.base,
@@ -23,12 +25,13 @@ const styles = ({ color, fontFamily, fontSize, space, mq }) => ({
 		[mq.small]: {
 			display: 'inline-block',
     },
+    border: '1px solid red',
 	},
 	heading: {
 		color: '#999',
 		marginTop: space[1],
 		fontFamily: fontFamily.base,
-    fontWeight: 'bold',
+		fontWeight: 'bold',
 	},
 	isSelected: {
 		fontWeight: 'bold',
