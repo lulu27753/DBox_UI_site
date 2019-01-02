@@ -5,7 +5,7 @@ import Styled from 'rsg-components/Styled';
 
 const xsmall = '@media (max-width: 600px)';
 
-const styles = ({ color, font, base, light, link, mq }) => ({
+const styles = ({ mq }) => ({
 	root: {
 		minHeight: '100vh',
     backgroundColor: '#fff',
@@ -22,7 +22,7 @@ const styles = ({ color, font, base, light, link, mq }) => ({
     background: 'rgba(255,255,255,1)',
 	},
 	bar: {
-    maxWidth: '1200px',
+    width: '90%',
     margin: '0 auto',
 		display: 'flex',
 		alignItems: 'center',
@@ -38,13 +38,14 @@ const styles = ({ color, font, base, light, link, mq }) => ({
     },
   },
   mainCont: {
-    maxWidth: '1200px',
+    width: '90%',
     margin: '100px auto 0',
-    clear: 'both',
   },
   sidebar: {
     borderRight: '1px solid #eaeefb',
-    float: 'left',
+    position: 'fixed',
+    top: '0',
+    left: '5%',
     marginRight: '-240px',
     width: '240px',
     overflowY: 'scroll',
@@ -66,36 +67,33 @@ const styles = ({ color, font, base, light, link, mq }) => ({
 	headerLink: {
 		'&': {
       display: 'inline-block',
-      color: '#000',
+      color: 'rgba(0,0,0,.6)',
       width: '80px',
+      fontSize: '14px',
+      fontWeight: '400',
       textAlign: 'center',
 		},
-	'&:hover, &:active': {
-      color: '#13B886',
-      textAlign: 'center',
-      width: '80px',
-      cursor: 'pointer',
-      height: '61px',
-      padding: '0 12px',
-      display: 'inline-block',
-      borderBottom: '3px solid #13B886',
-		},
-  },
-  active: {
-    color: '#13B886',
-    cursor: 'pointer',
-    height: '64px',
-    padding: '0 12px',
-    display: 'inline-block',
-    borderBottom: '3px solid #13B886',
-  }
+    '&:hover, &:active': {
+        color: '#13B886',
+        textAlign: 'center',
+        width: '80px',
+        cursor: 'pointer',
+        height: '61px',
+        display: 'inline-block',
+      },
+    },
 });
 
 export function StyleGuideRenderer({ classes, title, children, toc }) {
-	return (<div className={classes.root}><header className={classes.header}><div className={classes.bar}><Logo>{title}</Logo><nav className={classes.nav}><a className={classes.headerLink} href='index.html'>首页</a><a className={classes.headerLink} href='design.html'>设计原则</a><a className={classes.headerLink} href='doc.html'>组件文档</a><a className={classes.headerLink} href='resource.html'>设计资源</a>
-</nav></div></header><div className={classes.mainCont}><aside className={classes.sidebar}>{toc}</aside><main className={classes.content}><div className={classes.innerCont}>{children}
-</div></main>
-</div>
+  const active = {
+    color: '#13B886',
+    cursor: 'pointer',
+    height: '61px',
+    display: 'inline-block',
+    borderBottom: '3px solid #13B886',
+  }
+	return (<div className={classes.root}><header className={classes.header}><div className={classes.bar}><Logo>{title}</Logo>
+  <nav className={classes.nav}><a className={classes.headerLink} href='index.html'>首页</a><a className={classes.headerLink} href='design.html'>设计原则</a><a className={classes.headerLink} href='doc.html' style={active}>组件文档</a><a className={classes.headerLink} href='resource.html'>设计资源</a></nav></div></header><div className={classes.mainCont}><aside className={classes.sidebar}>{toc}</aside><main className={classes.content}><div className={classes.innerCont}>{children}</div></main></div>
 </div>
 	);
 }

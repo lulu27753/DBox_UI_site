@@ -9,12 +9,13 @@ const styles = ({ color }) => ({
 	link: {
 		display: 'block',
 		height: '30px',
-		color: '#444',
+		color: '#333',
 		lineHeight: '30px',
 		overflow: 'hidden',
 		fontWeight: '400',
 		fontSize: '14px',
-		cursor: 'pointer',
+    cursor: 'pointer',
+    paddingLeft: '8px',
 	},
 	h1: {
 		fontSize: '12px',
@@ -35,19 +36,19 @@ const handleActiveLink = (linkItem) => {
 }
 
 export function LinkRenderer({ classes, children, ...props }) {
-	const headline = ['Components', 'General', 'Navigation', 'DataEntry', 'DataDisplay', 'Feedback', 'Others'];
+	const headline = ['Components', 'LayOut', 'General', 'Navigation', 'DataEntry', 'Styles', 'DataDisplay', 'Feedback', 'Others'];
 	for (const item of headline.values()) {
 		if (children === item) {
 			return (
   <h3 className={cx(classes.h1, props.className)} >
-    {children}
+    {Data[children]}
   </h3>
 			);
 		}
 	}
 	return (
   <a {...props} style={handleActiveLink(children)} className={cx(classes.link, props.className)} >
-    {children}&nbsp;&nbsp;&nbsp;{Data[children]}
+    {children}&nbsp;{Data[children]}
   </a>
 	);
 }
