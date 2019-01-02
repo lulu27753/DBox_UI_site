@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Styled from 'rsg-components/Styled';
-import logo from '../assets/img/logo.svg';
+import logo from '../assets/img/logo.png';
 
 const styles = () => ({
 	logo: {
@@ -13,7 +13,7 @@ const styles = () => ({
 	},
 	image: {
     width: '22px',
-    marginRight: '6px'
+    marginRight: '12px'
   },
   text: {
     fontSize: '20px',
