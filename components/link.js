@@ -4,22 +4,28 @@ import cx from 'classnames';
 import Styled from 'rsg-components/Styled';
 import Data from '../data/componentsName.jsx';
 
-
 const styles = ({ color }) => ({
 	link: {
 		display: 'block',
 		height: '30px',
-		color: '#444',
+		color: '#333',
 		lineHeight: '30px',
 		overflow: 'hidden',
 		fontWeight: '400',
 		fontSize: '14px',
-		cursor: 'pointer',
+    cursor: 'pointer',
+    paddingLeft: '8px',
 	},
 	h1: {
 		fontSize: '12px',
 		color: '#99a9bf',
-	}
+  },
+  chinese: {
+		fontSize: '12px',
+    marginLeft: '8px',
+    display: 'inline-block',
+    cursor: 'pointer',
+  }
 });
 
 const handleActiveLink = (linkItem) => {
@@ -40,14 +46,24 @@ export function LinkRenderer({ classes, children, ...props }) {
 		if (children === item) {
 			return (
   <h3 className={cx(classes.h1, props.className)} >
-    {children}
+    {Data[children]}
   </h3>
 			);
 		}
-	}
+  }
+  const chineseName = ['Install', 'GetStarted', 'Version', 'Color', 'Typography'];
+  for (const item of chineseName.values()) {
+		if (children === item) {
+			return (
+  <a {...props} style={handleActiveLink(children)} className={cx(classes.link, props.className)} >
+    {Data[children]}
+  </a>
+			);
+		}
+  }
 	return (
   <a {...props} style={handleActiveLink(children)} className={cx(classes.link, props.className)} >
-    {children}&nbsp;&nbsp;&nbsp;{Data[children]}
+    {children}<span className={classes.chinese}>{Data[children]}</span>
   </a>
 	);
 }
